@@ -1,0 +1,18 @@
+﻿@page
+@model SuperTests11.Pages.ResultsModel
+@{
+}
+
+<h2>Test Results</h2>
+<p>Single Choice Score: @Model.Result.SingleChoiceScore</p>
+<p>Multiple Choice Score: @Model.Result.MultipleChoiceScore</p>
+<h3>Text Entry Answers</h3>
+<ul>
+    @foreach (var answer in Model.Result.TextEntryAnswers)
+    {
+        <li>
+            Question: @Model.Questions.First(q => q.Id == answer.QuestionId).Text<br />
+            Your Answer: @answer.UserAnswer
+        </li>
+    }
+</ul>

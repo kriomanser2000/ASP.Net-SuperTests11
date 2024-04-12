@@ -1,0 +1,16 @@
+﻿@page
+@model SuperTests11.Pages.TextEntryModel
+@{
+}
+
+<h2>Text Entry Questions</h2>
+<form method="post">
+    @for (int i = 0; i < Model.Questions.Count; i++)
+    {
+        <div class="question">
+            <h4>@Model.Questions[i].Text</h4>
+            <input type="text" name="answers[@i]" />
+        </div>
+    }
+    <button type="submit" asp-page-handler="Finish">Finish</button>
+</form>

@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h2>Single Choice Questions</h2>
+<form method="post">
+    @for (int i = 0; i < Model.Questions.Count; i++)
+    {
+        <div class="question">
+            <h4>@(i + 1). @Model.Questions[i].Text</h4>
+            @for (int j = 0; j < Model.Questions[i].Answers.Count; j++)
+            {
+                <div>
+                    <input type="radio" name="answers[@i]" value="@Model.Questions[i].Answers[j].Id" />
+                    @Model.Questions[i].Answers[j].Text
+                </div>
+            }
+        </div>
+    }
+    <button type="submit" asp-page-handler="Next">Next</button>
+</form>
